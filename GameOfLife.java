@@ -2,33 +2,28 @@ package lab3;
 
 import java.util.Base64;
 
-public class GameOfLife {
-    int size;
-    int[][]Board;
-    int[][]Previous;
+ class GameOfLife {
+     int size;
+     int[][]Board;
+     int[][]Previous;
 
-  public static void main(String[] args) {
+     public static void main(String[] args) {
 
-      int [][] array = {{0,0,0,0,0,0},{0,1,1,0,0,0},{0,1,1,0,0,0},{0,0,0,1,1,0},{0,0,0,1,1,0},{0,0,0,0,0,0}};
-      GameOfLife test = new GameOfLife(array);
+        int [][] array = {{0,0,0,0,0,0},{0,1,1,0,0,0},{0,1,1,0,0,0},{0,0,0,1,1,0},{0,0,0,1,1,0},{0,0,0,0,0,0}};
+        GameOfLife test = new GameOfLife(array);
 
-      test.evolution(2);
+        test.evolution(4);
+        test.printBoard();
+    }
 
+     GameOfLife(){} //default constructor
 
-      test.printBoard();
-
-
-
-  }
-
-    public GameOfLife(){} //default constructor
-
-    public GameOfLife(int size){ //constructor with board size
+     GameOfLife(int size){ //constructor with board size
         this.size = size;
         Previous = new int [size][size];
         Board = new int [size][size];
     }
-    public GameOfLife(int[][]array){ //constructor with board
+     GameOfLife(int[][]array){ //constructor with board
         size = array.length;
         Previous = new int [size][size];
         Board = new int [size][size];
@@ -42,11 +37,11 @@ public class GameOfLife {
 
     }
 
-    private int[][] getBoard(){
+    int[][] getBoard(){
         return this.Board;
     }
 
-     void oneStep(){
+    void oneStep(){
 
 
         for(int i = 0; i <Previous.length;i++){
@@ -61,13 +56,13 @@ public class GameOfLife {
                 }
             }
         }
-         for(int i = 0;i < Board.length;i++){
-             for(int j = 0; j<Board[i].length; j++){
-                 Previous[i][j] = Board[i][j];
-             }
-         }
+        for(int i = 0;i < Board.length;i++){
+            for(int j = 0; j<Board[i].length; j++){
+                Previous[i][j] = Board[i][j];
+            }
+        }
     }
-      void evolution(int steps){
+    void evolution(int steps){
         int n = steps;
         while(n != 0){
             oneStep();
@@ -84,7 +79,7 @@ public class GameOfLife {
         }
     }
 
-      int neighbors(int[][]Board, int row, int col){
+    int neighbors(int[][]Board, int row, int col){
         int neighbors = 0;
 
 //         diagonalLeftTop = Board[row-1][col-1];
@@ -239,4 +234,3 @@ public class GameOfLife {
     }
 
 }
-
