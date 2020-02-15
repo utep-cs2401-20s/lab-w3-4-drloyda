@@ -7,14 +7,6 @@ import java.util.Base64;
      int[][]Board;
      int[][]Previous;
 
-     public static void main(String[] args) {
-
-        int [][] array = {{0,0,0,0,0,0},{0,1,1,0,0,0},{0,1,1,0,0,0},{0,0,0,1,1,0},{0,0,0,1,1,0},{0,0,0,0,0,0}};
-        GameOfLife test = new GameOfLife(array);
-
-        test.evolution(4);
-        test.printBoard();
-    }
 
      GameOfLife(){} //default constructor
 
@@ -91,6 +83,7 @@ import java.util.Base64;
 //         diagonalLeftBottom = Board[row+1][col-1];
 //         indexDown = Board[row+1][col];
 //         diagonalRightBottom = Board[row+1][col+1];
+
 
         if(row == 0 && col == 0){ //checking first element
             if(Board[row+1][col] == 1){ //down

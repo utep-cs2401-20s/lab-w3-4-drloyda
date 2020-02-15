@@ -2,13 +2,7 @@ package lab3;
 
 
  class TorusGameOfLife extends GameOfLife {
-     public static void main(String[] args) {
-         int [][] array = {{1,0,1,0},{0,0,0,0},{0,0,0,0},{0,1,1,0}};
-         TorusGameOfLife testing = new TorusGameOfLife(array);
 
-         testing.evolution(1);
-         testing.printBoard();
-     }
      TorusGameOfLife(){} //default constructor
 
      TorusGameOfLife(int size){ //constructor with board size
